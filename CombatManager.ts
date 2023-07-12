@@ -5,6 +5,7 @@ class CombatManager {
 
     constructor() {
         this.registerOverlaps();
+        this.initialiseDestroyedEvents();
         this.spawnWave();
     }
 
@@ -17,26 +18,31 @@ class CombatManager {
         music.beamUp.play();
     }
 
+    private initialiseDestroyedEvents(): void {
+        sprites.onDestroyed(SpriteKind.Enemy, function(): void {
+            console.log("enemy onDestroyed")
+            this.enemyCount -= 1;
+            info.changeScoreBy(100);
+            if (this.enemyCount < 1) {
+                this.spawnWave();
+            }
+        });
+    }
+
     private registerOverlaps(): void {
 
         sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (playerSprite: Sprite, enemy: Sprite): void {
-            info.changeLifeBy(-1);
+            enemy.data.positionGhost();
             music.knock.play();
             playerSprite.setVelocity(enemy.vx * enemy.data.knockbackForce, enemy.vy * enemy.data.knockbackForce)
             Render.jumpWithHeightAndDuration(playerSprite, 2, 300)
             timer.after(300, function (): void {
                 playerSprite.setVelocity(0, 0);
             });
-            new EnemySprite();
-            enemy.destroy();
+            info.changeLifeBy(-1);
         });
 
         sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (projectile: Sprite, enemy: Sprite): void {
-            info.changeScoreBy(100);
-            this.enemyCount -= 1;
-            if(this.enemyCount < 1) {
-                this.spawnWave();
-            }
             projectile.destroy();
             enemy.destroy(effects.ashes);
         });
