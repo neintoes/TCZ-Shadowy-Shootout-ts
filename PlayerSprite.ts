@@ -2,10 +2,16 @@ class PlayerSprite {
 
     public sprite: Sprite;
     readonly projectileSpeed: number = 120; 
+    // GH2
+    private hasBomb: boolean;
+    // end GH2
 
     constructor() {
         this.sprite = Render.getRenderSpriteVariable();
         this.registerControls();
+        // GH2
+        this.hasBomb = true;
+        // end GH2
     }
 
     private fire (): void {
@@ -25,5 +31,19 @@ class PlayerSprite {
         controller.A.onEvent(ControllerButtonEvent.Pressed, function (): void {
             this.fire();
         });
+
+        // GH2
+        controller.B.onEvent(ControllerButtonEvent.Pressed, function(): void {
+            if(this.hasBomb) {
+                this.hasBomb = false;
+                let bomb = new Bomb(this.sprite);
+                bomb.throw();
+                timer.after(bomb.fuse, function (): void {
+                    bomb.detonate();
+                    this.hasBomb = true;
+                });
+            }
+        });
+        // end GH2
     }
 }

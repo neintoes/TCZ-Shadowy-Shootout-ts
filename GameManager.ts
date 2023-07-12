@@ -1,5 +1,8 @@
 namespace SpriteKind {
     export const UI: number = SpriteKind.create();
+    // GH2
+    export const Bomb: number = SpriteKind.create();
+    // end GH2
 }
 
 class GameManager {
