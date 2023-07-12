@@ -20,5 +20,4 @@ class EnemySprite extends BaseSprite{
     public handleMovement(): void {
         tilesAdvanced.followUsingPathfinding(this.sprite, this.playerSprite, randint(10, 60))
     }
-
 }
