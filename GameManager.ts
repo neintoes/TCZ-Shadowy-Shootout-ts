@@ -14,19 +14,14 @@ class GameManager {
         this.tileMapLevels = tilemapsToLoad;
         this.initialisePlayer();
         this.ui = new UI(this.playerSprite.sprite);
-        this.initialiseScene();
+        this.tilemapManager = new TilemapManager(this.tileMapLevels[this.level], this.playerSprite.sprite);
         this.combatManager = new CombatManager();
         this.onUpdates();
     }
 
-    private initialiseScene(): void {
-        this.tilemapManager = new TilemapManager(this.tileMapLevels[this.level], this.playerSprite.sprite);
-        this.tilemapManager.buildLevel();
-        Render.setViewAngleInDegree(90)
-    }
-
     private initialisePlayer(): void {
         info.setLife(3);
+        this.combatManager = new CombatManager();
         this.playerSprite = new PlayerSprite();
     }
 

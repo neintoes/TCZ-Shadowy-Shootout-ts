@@ -5,6 +5,7 @@ class TilemapManager {
     constructor(tileMap: tiles.TileMapData, playerSprite: Sprite) {
         this.tileMap = tileMap;
         this.playerSprite = playerSprite;
+        this.buildLevel();
     }
 
     private placePlayer(): void {
