@@ -21,7 +21,6 @@ class GameManager {
 
     private initialisePlayer(): void {
         info.setLife(3);
-        this.combatManager = new CombatManager();
         this.playerSprite = new PlayerSprite();
     }
 
