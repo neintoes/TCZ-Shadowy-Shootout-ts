@@ -1,0 +1,28 @@
+{
+    "name": "Tiles Advanced",
+    "version": "1.2.3",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "controller": "*",
+        "arcade-tilemap-a-star": "github:jwunderl/arcade-tilemap-a-star#v0.4.0"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "tilesadvanced.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.12.30",
+        "pxt": "8.5.2",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}

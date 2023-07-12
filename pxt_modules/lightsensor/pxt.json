@@ -1,0 +1,23 @@
+{
+    "name": "lightsensor",
+    "description": "Onboard light level sensor",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "lightsensor.cpp",
+        "ns.ts",
+        "shims.d.ts",
+        "enums.d.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.12.32",
+        "pxt": "8.5.44"
+    },
+    "hidden": true
+}

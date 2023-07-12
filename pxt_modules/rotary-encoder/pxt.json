@@ -1,0 +1,22 @@
+{
+    "name": "rotary-encoder",
+    "description": "Driver for rotary encoder",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "rotary.cpp",
+        "enums.d.ts",
+        "shims.d.ts",
+        "ns.ts",
+        "targetoverrides.ts",
+        "README.md"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.12.32",
+        "pxt": "8.5.44"
+    },
+    "hidden": true,
+    "icon": "./static/libs/rotary-encoder.png"
+}

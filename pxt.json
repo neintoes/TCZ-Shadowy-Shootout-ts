@@ -1,0 +1,25 @@
+{
+    "name": "ShadowyShootoutTS",
+    "version": "0.0.0",
+    "files": [
+        "main.ts",
+        "GameManager.ts",
+        "PlayerSprite.ts",
+        "TilemapManager.ts",
+        "OverlapManager.ts",
+        "BaseSprite.ts",
+        "EnemySprite.ts",
+        "UI.ts"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "dependencies": {
+        "device": "*",
+        "raycasting": "github:aqeeaqee/pxt-raycasting#v0.3.16",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.0",
+        "tcz-modders-tilemaps-advanced": "github:ashalls/tcz-modders-tilemaps-advanced#v1.2.3",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+    },
+    "testDependencies": {}
+}

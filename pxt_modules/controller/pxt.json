@@ -1,0 +1,32 @@
+{
+    "name": "controller",
+    "description": "Extra game controller functionalities",
+    "dependencies": {
+        "core": "*",
+        "accelerometer": "*",
+        "lightsensor": "*",
+        "thermometer": "*",
+        "game": "*",
+        "light": "*",
+        "rotary-encoder": "*"
+    },
+    "files": [
+        "README.md",
+        "state.ts",
+        "vibration.ts",
+        "accelerometer.ts",
+        "lightsensor.ts",
+        "thermometer.ts",
+        "controller.ts",
+        "light.ts",
+        "crank.ts",
+        "controllerimpl.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "1.12.32",
+        "pxt": "8.5.44"
+    },
+    "weight": 99,
+    "icon": "./static/libs/controller.png"
+}
