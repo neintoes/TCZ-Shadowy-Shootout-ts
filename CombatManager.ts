@@ -5,7 +5,7 @@ class CombatManager {
 
     constructor() {
         this.registerOverlaps();
-        this.initialiseDestroyedEvents();
+        this.setupEnemyDestructionhandler();
         this.spawnWave();
     }
 
@@ -18,9 +18,8 @@ class CombatManager {
         music.beamUp.play();
     }
 
-    private initialiseDestroyedEvents(): void {
+    private setupEnemyDestructionhandler(): void {
         sprites.onDestroyed(SpriteKind.Enemy, function(): void {
-            console.log("enemy onDestroyed")
             this.enemyCount -= 1;
             info.changeScoreBy(100);
             if (this.enemyCount < 1) {
