@@ -1,14 +1,14 @@
 class TilemapManager {
     public tileMap: tiles.TileMapData;
-    public player: PlayerSprite;
+    public playerSprite: Sprite;
 
-    constructor(tileMap: tiles.TileMapData, player: PlayerSprite) {
+    constructor(tileMap: tiles.TileMapData, playerSprite: Sprite) {
         this.tileMap = tileMap;
-        this.player = player;
+        this.playerSprite = playerSprite;
     }
 
     private placePlayer(): void {
-        tiles.placeOnRandomTile(this.player.sprite, assets.tile`player spawn`);
+        tiles.placeOnRandomTile(this.playerSprite, assets.tile`player spawn`);
     }
 
     public buildLevel(): void {

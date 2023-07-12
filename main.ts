@@ -1,2 +1,2 @@
-let levelsToLoad = [tilemap`level1`]
+let levelsToLoad = [tilemap`level`]
 let thisGame = new GameManager(levelsToLoad);

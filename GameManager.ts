@@ -3,28 +3,26 @@ namespace SpriteKind {
 }
 
 class GameManager {
-    private wave_number: number = 0;
-    private enemy_count: number = 0;
+    public playerSprite: PlayerSprite;
     private tilemapManager: TilemapManager;
     private tileMapLevels: tiles.TileMapData[];
-    private overlapManager: OverlapManager;
     public level: number = 0;
+    private combatManager: CombatManager;
     private ui: UI;
-    public playerSprite: PlayerSprite;
 
     constructor(tilemapsToLoad: tiles.TileMapData[]) {
         this.tileMapLevels = tilemapsToLoad;
+        this.initialisePlayer();
         this.ui = new UI(this.playerSprite.sprite);
         this.initialiseScene();
-        this.initialisePlayer();
-        // this.onUpdates();
-        // this.onUpdateIntervals();
-        this.overlapManager = new OverlapManager();
+        this.combatManager = new CombatManager();
+        this.onUpdates();
     }
 
     private initialiseScene(): void {
-        this.tilemapManager = new TilemapManager(this.tileMapLevels[this.level], this.playerSprite);
+        this.tilemapManager = new TilemapManager(this.tileMapLevels[this.level], this.playerSprite.sprite);
         this.tilemapManager.buildLevel();
+        Render.setViewAngleInDegree(90)
     }
 
     private initialisePlayer(): void {
@@ -32,9 +30,11 @@ class GameManager {
         this.playerSprite = new PlayerSprite();
     }
 
-
     // on updates
-
-
-    // on update intervals
+    private onUpdates(): void {
+        game.onUpdate(function(): void {
+            this.ui.checkDanger();
+            this.ui.updateEnemyCounter(this.combatManager.enemyCount)
+        });
+    }
 }

@@ -6,26 +6,26 @@ class UI {
 
     constructor(playerSprite: Sprite) {
         this.registerCrosshair();
-        this.registerEnemyCounter();
         this.registerWarning();
+        this.registerEnemyCounter();
         this.playerSprite = playerSprite;
     }
 
     private registerCrosshair(): void {
-        this.crosshair = sprites.create(assets.image("crosshair"), SpriteKind.UI);
+        this.crosshair = sprites.create(assets.image`crosshair`, SpriteKind.UI);
         this.crosshair.setFlag(SpriteFlag.RelativeToCamera, true);
     }
 
     private registerEnemyCounter(): void {
         this.enemyCounter = textsprite.create("", 1, 3);
         this.enemyCounter.setFlag(SpriteFlag.RelativeToCamera, true);
-        this.enemyCounter.setPosition(80, 115);
+        this.enemyCounter.setPosition(40, 115);
     }
 
     private registerWarning(): void {
-        this.warningSprite = sprites.create(assets.image("warning"), SpriteKind.UI);
+        this.warningSprite = sprites.create(assets.image`warning`, SpriteKind.UI);
         this.warningSprite.setFlag(SpriteFlag.RelativeToCamera, true);
-        animation.runImageAnimation(this.warningSprite, assets.animation("warning animation"), 600, true);
+        animation.runImageAnimation(this.warningSprite, assets.animation`warning animation`, 600, true);
     }
 
     public updateEnemyCounter(count: number): void {

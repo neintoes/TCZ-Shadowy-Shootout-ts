@@ -8,12 +8,11 @@ class PlayerSprite {
         this.registerControls();
     }
 
-
     private fire (): void {
         let dirX = Render.getAttribute(Render.attribute.dirX);
         let dirY = Render.getAttribute(Render.attribute.dirY);
         let projectile = sprites.createProjectileFromSprite(
-            assets.image("projectile"),
+            assets.image`projectile`,
             this.sprite,
             dirX * this.projectileSpeed,
             dirY * this.projectileSpeed
