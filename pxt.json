@@ -23,11 +23,11 @@
         "tilemap.g.ts",
         "CombatManager.ts",
         "Throwables.ts",
-        "Door.ts"
+        "Scenery.ts"
     ],
     "testDependencies": {},
     "targetVersions": {
-        "target": "1.12.32",
+        "target": "1.12.33",
         "targetId": "arcade"
     },
     "supportedTargets": [
