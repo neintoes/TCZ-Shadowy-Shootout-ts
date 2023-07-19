@@ -45,20 +45,5 @@ class CombatManager {
             projectile.destroy();
             enemy.destroy(effects.ashes);
         });
-        
-        // GH2
-        scene.onOverlapTile(SpriteKind.Player, assets.tile`door entry`, function(playerSprite: Sprite, doorEntry: tiles.Location): void {
-            let door: tiles.Location = scenery.getDoorFromEntry(doorEntry);
-            if(door) {
-                scenery.openDoor(door);
-                timer.background(function(): void {
-                    while(!door.isWall()) {
-                        pause(500);
-                        scenery.closeDoor(door);
-                    }
-                })
-            }
-        });
-        // end GH2
     }
 }

@@ -22,8 +22,7 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "CombatManager.ts",
-        "Throwables.ts",
-        "Scenery.ts"
+        "Throwables.ts"
     ],
     "testDependencies": {},
     "targetVersions": {
